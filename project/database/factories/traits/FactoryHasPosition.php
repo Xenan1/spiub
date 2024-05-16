@@ -19,4 +19,9 @@ trait FactoryHasPosition
             ];
         });
     }
+
+    public static function resetPosition(): void
+    {
+        static::$position = 1;
+    }
 }
