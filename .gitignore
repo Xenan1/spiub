@@ -1,4 +1,4 @@
 .env
-./deploy/nginx/logs/
-./deploy/db
+deploy/nginx/logs/
+deploy/db
 .idea
