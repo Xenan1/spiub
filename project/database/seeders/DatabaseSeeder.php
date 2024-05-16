@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         if (app()->isLocal()) {
             (new QuestionSeeder())->run();
             (new ResultSeeder())->run();
+            (new AnswerSeeder())->run();
         }
     }
 }
