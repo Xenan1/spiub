@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        (new QuestionSeeder())->run();
+        if (app()->isLocal()) {
+            (new QuestionSeeder())->run();
+            (new ResultSeeder())->run();
+        }
     }
 }
