@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/test', [TestController::class, 'getTest']);
+Route::patch('/test_result', [TestController::class, 'getTestResult']);
