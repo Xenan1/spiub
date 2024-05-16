@@ -14,6 +14,6 @@ class Question extends Model
 
     public function answers(): HasMany
     {
-        return $this->hasMany(Answer::class)->orderBy('position');
+        return $this->hasMany(Answer::class)->inRandomOrder();
     }
 }
