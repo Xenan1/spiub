@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Answer extends Model
 {
@@ -12,13 +12,13 @@ class Answer extends Model
 
     protected $guarded = [];
 
-    public function question(): HasOne
+    public function question(): BelongsTo
     {
-        return $this->hasOne(Question::class);
+        return $this->belongsTo(Question::class);
     }
 
-    public function answer(): HasOne
+    public function result(): BelongsTo
     {
-        return $this->hasOne(Answer::class);
+        return $this->belongsTo(Result::class);
     }
 }
