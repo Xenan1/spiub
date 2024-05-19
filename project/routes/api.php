@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ResultController;
 use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +24,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/test', [TestController::class, 'getTest']);
 Route::patch('/test_result', [TestController::class, 'getTestResult']);
+
+Route::prefix('admin')->group(function () {
+    Route::resource('questions', QuestionController::class);
+    Route::resource('results', ResultController::class);
+    Route::resource('answers', AnswerController::class);
+});
+
+
