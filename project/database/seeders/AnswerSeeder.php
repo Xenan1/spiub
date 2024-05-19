@@ -15,7 +15,7 @@ class AnswerSeeder extends Seeder
     public function run(): void
     {
         foreach (Question::query()->get() as $question) {
-            Answer::factory(4)->forQuestion($question)->positionIncrement()->create();
+            Answer::factory(4)->forQuestion($question)->create();
             AnswerFactory::resetPosition();
         }
     }
