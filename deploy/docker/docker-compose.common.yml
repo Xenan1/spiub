@@ -2,22 +2,22 @@ version: "3"
 
 services:
   app_common:
-    container_name: app_pizza
+    container_name: app_common
     restart: unless-stopped
     networks:
-      - pizza-network
+      - app-network
 
   nginx_common:
     image: nginx
-    container_name: nginx_pizza
+    container_name: nginx_common
     restart: unless-stopped
     ports:
       - "${NGINX_PORT}:80"
     networks:
-      - pizza-network
+      - app-network
 
   pgdb_common:
-    container_name: postgres_pizza
+    container_name: postgres_common
     image: postgres:15
     restart: unless-stopped
     environment:
@@ -28,14 +28,16 @@ services:
     ports:
       - "${PG_DB_PORT}:5432"
     networks:
-      - pizza-network
+      - app-network
 
   swagger_common:
-    container_name: swagger_pizza
+    container_name: swagger_common
     image: swaggerapi/swagger-ui
     environment:
       SWAGGER_JSON: '/docs/openapi.yaml'
     restart: unless-stopped
+    networks:
+      - app-network
 
     networks:
-      - pizza-network
+      - app-network
